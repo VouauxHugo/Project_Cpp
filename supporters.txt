@@ -1,0 +1,9 @@
+Fans_Hardcore 3 2
+Commentateurs 2 3
+Fans_Assidus 1 2
+Fans_du_Dimanche 2 1
+Buveur_de_Bierres 1 1
+Fans_de_Basket 1 3
+Mauvaise_Foi -1 2
+Tricheurs -1 1
+Ceux_qui_ne_comprennent_pas_le_HORS_JEU -1 3

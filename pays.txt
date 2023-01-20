@@ -1,0 +1,39 @@
+Pays-Bas 5 4 2 1741
+Sénégal 5 1 2 1604
+Equateur 4 1 1 1477
+Qatar 1 0 1 1397
+
+Angleterre 9 7 2 1774
+Etats-Unis 2 1 2 1653
+Iran 4 0 1 1552
+Pays_de_galle 1 0 1 1530
+
+Argentine 5 3 3 1838
+Pologne 2 1 2 1560
+Méxique 2 0 1 1636
+Arabie_Saoudite 3 0 1 1438
+
+France 6 3 3 1823
+Australie 3 0 2 1534
+Tunisie 1 0 1 1526
+Danemark 1 0 1 1608
+
+Japon 4 1 2 1593
+Espagne 9 6 2 1693
+Allemagne 6 1 1 1647
+Costa_Rica 3 0 1 1500
+
+Maroc 4 3 3 1672
+Croatie 4 3 3 1728
+Belgique 1 0 1 1781
+Canada 2 0 1 1432
+
+Brésil 3 2 2 1841
+Suisse 4 1 2 1655
+Cameroun 4 0 1 1499
+Serbie 5 0 1 1526
+
+Portugal 6 2 2 1703
+Corée_du_Sud 4 0 2 1539
+Uruguay 2 0 1 1627
+Ghana 5 0 1 1400

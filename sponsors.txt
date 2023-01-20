@@ -1,0 +1,7 @@
+Crypto_com 1 1
+BYJU's 1 1
+Budweiser(alcool) -1 1
+Qatar_Energy 2 1
+Hisens 1 1
+McDonalds(beurk) -1 1
+Vivo 1 1

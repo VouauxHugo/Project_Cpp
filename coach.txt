@@ -1,0 +1,27 @@
+Louis_van_Gaal(P-B) 2 1
+Aliou_Cissé(Sén) 1 1
+Félix_Sanchez_Bas(Qat) -1 3
+
+Gareth_Southgate(Ang) 2 2
+Gregg_Berhalter(E-U) 1 1
+
+Lionel_Scaloni(Arg) 2 3
+Poste_Vacant_LOL(Pol) -3 3
+Gerardo_Martino(Mex) 1 1
+
+Didier_Deschamps(Fra) 2 3
+Graham_Arnold(Aus) 2 1
+Kasper_Hjulmand(Dan) 2 1
+
+Luis_Enrique(Esp) 2 2
+Hans-Dieter_Flick(All) 1 3
+
+Walid_Regragui(Mar) 2 3
+Zlatko_Dalic(Cro) 2 2
+Poste_Vacant_MDR(Bel) -3 3
+
+Tite(Bre) 1 3
+Murat_Yakin(Sui) 2 1
+
+Fernando_Santos(Por) 1 2
+AUCUN???(Cor) 0 5
