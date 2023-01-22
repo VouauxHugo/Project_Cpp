@@ -5,7 +5,8 @@
 #include <string>
 #include <fstream> 
 #include "carte.hpp"
-
+//classe abstraite puisque la classe Sportif ne sera jamais directement créer, on créera plutot les classe héritées de cette classe (Attaquant, Defenseur, Gardien)
+//On gardera tout de même l'attribut de nationalité pour les 3 classes héritées.
 class Sportif:public Carte{
     public:
         virtual ~Sportif(){};

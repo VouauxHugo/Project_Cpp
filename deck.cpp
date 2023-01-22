@@ -22,7 +22,7 @@ Deck::Deck(const std::string& nom, std::list<Carte*> main){
 }
 
 Deck::Deck(const Deck& copie){
-    std::cout<<"ON EST ICI !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"<<std::endl;
+    //std::cout<<"ON EST ICI !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"<<std::endl;
     this->_nom=copie._nom;
     this->_main=copie._main;
     this->_total_attaque=copie._total_attaque;

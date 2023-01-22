@@ -6,6 +6,7 @@ int main(){
 	std::string nom, attaque, defense, goal, charisme, nationalite, rarete;
 	int entrer=1;
 	std::list<Carte*> liCollection;
+	int score_j1=0, score_j2=0;
 
 	//Création des cartes Pays :
 	std::list<Pays> liPays;
@@ -124,81 +125,80 @@ int main(){
 		elem->affichage();
 	}*/
 
-	//implémentation du jeu
-	//etape 3 et 4 : à partir des listes de cartes crées précédemment, on chosit de manière aléatoire
-	//des cartes dans chaque liste pour les mettre dans une seule liste
+	//A partir des listes de cartes crées précédemment, on chosit de manière aléatoire
+	//des cartes dans chaque liste pour les mettre dans un vecteur de carte (par joueur) qui servira pour faire les 2 decks de chaque joueur
 	std::vector<Carte*> Vector1, Vector2;
-	int choice1, choice2;
+	int choice;
 
 	//choix des pays
 	for (int i=0; i<3; i++){
 		//std::list<Pays>::iterator it = liPays.begin();
-		choice1 = rand()%liPays.size();
-		choice2 = rand()%liPays.size();
+		choice = rand()%liPays.size();
 		auto it = std::begin(liPays);
-		std::advance(it,choice1);
+		std::advance(it,choice);
 		Vector1.push_back(&(*it));
+		choice = rand()%liPays.size();
 		it = std::begin(liPays);
-		std::advance(it,choice2);
+		std::advance(it,choice);
 		Vector2.push_back(&(*it));
 	}
 
 	//choix des attaquants
 	for (int i=0; i<5; i++){
-		choice1 = rand()%liAttaquant.size();
-		choice2 = rand()%liAttaquant.size();
+		choice = rand()%liAttaquant.size();
 		auto it = std::begin(liAttaquant);
-		std::advance(it,choice1);
+		std::advance(it,choice);
 		Vector1.push_back(&(*it));
+		choice = rand()%liAttaquant.size();
 		it = std::begin(liAttaquant);
-		std::advance(it,choice2);
+		std::advance(it,choice);
 		Vector2.push_back(&(*it));
 	}
 
 	//choix des défenseurs
 	for (int i=0; i<5; i++){
-		choice1 = rand()%liDefenseur.size();
-		choice2 = rand()%liDefenseur.size();
+		choice = rand()%liDefenseur.size();
 		auto it = std::begin(liDefenseur);
-		std::advance(it,choice1);
+		std::advance(it,choice);
 		Vector1.push_back(&(*it));
+		choice = rand()%liDefenseur.size();
 		it = std::begin(liDefenseur);
-		std::advance(it,choice2);
+		std::advance(it,choice);
 		Vector2.push_back(&(*it));
 	}
 
 	//choix des goals
 	for (int i=0; i<3; i++){
-		choice1 = rand()%liGardien.size();
-		choice2 = rand()%liGardien.size();
+		choice = rand()%liGardien.size();
 		auto it = std::begin(liGardien);
-		std::advance(it,choice1);
+		std::advance(it,choice);
 		Vector1.push_back(&(*it));
+		choice = rand()%liGardien.size();
 		it = std::begin(liGardien);
-		std::advance(it,choice2);
+		std::advance(it,choice);
 		Vector2.push_back(&(*it));
 	}
 
 	//choix des 3 cartes boosters
-	choice1 = rand()%(liSponsors.size()/2);
+	choice = rand()%(liSponsors.size()/2);
 	auto it1 = std::begin(liSponsors);
-	std::advance(it1,choice1);
+	std::advance(it1,choice);
 	Vector1.push_back(&(*it1));
-	std::advance(it1,choice1);
+	std::advance(it1,choice);
 	Vector2.push_back(&(*it1));
 	
-	choice1 = rand()%(liSupporters.size()/2);
+	choice = rand()%(liSupporters.size()/2);
 	auto it2 = std::begin(liSupporters);
-	std::advance(it2,choice1);
+	std::advance(it2,choice);
 	Vector1.push_back(&(*it2));
-	std::advance(it2,choice1);
+	std::advance(it2,choice);
 	Vector2.push_back(&(*it2));
 	
-	choice1 = rand()%(liCoach.size()/2);
+	choice = rand()%(liCoach.size()/2);
 	auto it3 = std::begin(liCoach);
-	std::advance(it3,choice1);
+	std::advance(it3,choice);
 	Vector1.push_back(&(*it3));
-	std::advance(it3,choice1);
+	std::advance(it3,choice);
 	Vector2.push_back(&(*it3));
 
 	system("clear"); //Permet de nettoyer
@@ -211,6 +211,7 @@ int main(){
 	entrer=1;
 	system("clear");
 
+	//définition du nom des personnages
 	char nom1[50], nom2[50];
 	std::cout<<"C'est l'heure de me donner vos petits noms\n\nJoueur 1, comment t'appelles tu ?"<<std::endl;
 	std::cin>>nom1;
@@ -223,14 +224,14 @@ int main(){
 	entrer=1;
 	system("clear");
 
+	//création des 2 joueurs à partir de leur noms
 	char jouer = 'O';
 	Joueur J1(nom1, Vector1);
 	Joueur J2("Gontrand", Vector2);
 
 	while(jouer=='O' || jouer=='o'){
 		jouer='N';
-		//etape 5 : construction du deck
-		//a partir des cartes, on affiche maintenant la liste et on de mande au joueur de faire son deck
+		//a partir des cartes, on affiche maintenant la liste et on de mande au joueur de faire ses 2 decks
 		std::cout<<"Le joueur 1 va maintenant devoir faire ses decks. Joueur 2, quitte la pièce" << std::endl;
 		std::cout<<"\nAppuyez sur 0 puis ENTER"<<std::endl;
 		while(entrer)std::cin>>entrer;
@@ -252,6 +253,8 @@ int main(){
 		Deck deck2_j1 = J1.newDeck(&deck1_j1);
 		J1.setDeck(&deck1_j1, &deck2_j1);
 		system("clear");
+
+		//affichage des 2 decks constitué par le joueur 1
 		std::cout<<"Voici les deux decks choisis :"<<std::endl;
 		deck1_j1.affichage();
 		deck2_j1.affichage();
@@ -261,7 +264,7 @@ int main(){
 		entrer=1;
 		system("clear");
 
-
+		//Le joueur 2 constitue ses 2 decks
 		std::cout<<"C'est maintenant au joueur 2 de choisir ses decks. Joueur 1, quitte la pièce"<<std::endl;
 		std::cout<<"\nAppuyez sur 0 puis ENTER"<<std::endl;
 		while(entrer)std::cin>>entrer;
@@ -276,6 +279,8 @@ int main(){
 		Deck deck2_j2 = J2.newDeck(&deck1_j2);
 		J2.setDeck(&deck1_j2, &deck2_j2);
 		system("clear");
+
+		//affichage des 2 decks du joueur 2
 		std::cout<<"Voici les deux decks choisis :"<<std::endl;
 		deck1_j2.affichage();
 		deck2_j2.affichage();
@@ -285,11 +290,12 @@ int main(){
 		entrer=1;
 		system("clear");
 
+		//création du tableau de la compétition à partir des 2 joueurs une fois leurs decks réalisés
+		//le tableau est ensuite affiché, ce qui permet notamment de voir les indices des decks sur lesquels parier
 		Tableau Tab_competition(&J1, &J2);
 		Tab_competition.affichage(1);
 
-		int score_j1=0, score_j2=0;
-		//paris
+		//phase de pari pour les 2 premier matchs
 		Deck* tab_paris[2][3];
 		int pari, ok=1;
 		std::cout << "Nous allons maintenant passer aux paris.\nPour chacun des 2 matchs de Demi-Finales, vous allez devoir parier sur votre équipe (ou sur l'équipe adverse si vous avez si peu confiance en vous).\n" << std::endl;
@@ -335,8 +341,8 @@ int main(){
 		entrer=1;
 		system("clear");
 
+		//Affichage des résultats et comptabilisation des points
 		std::cout<<"\t\tRESULTATS DEMI-FINALES\n"<<std::endl;
-
 		Tab_competition.getMatch1()->result();
 		Deck* winner1 = Tab_competition.getMatch1()->getWinnerMatch();
 		Tab_competition.getMatch2()->result();
@@ -383,6 +389,7 @@ int main(){
 		entrer=1;
 		system("clear");
 		
+		//Mise à jour du tableau de competition, phase de pari pour le dernier match
 		std::cout<<"Nous arrivons en Finale, un grand BRAVO à nos deux équipes\n"<<std::endl;
 		Tab_competition.affichage(2);
 
@@ -413,6 +420,7 @@ int main(){
 
 		system("clear");
 
+		//Résultat du match final et comptabilisationn des points
 		Tab_competition.getMatchFIN()->result();
 		Deck* winnerFin = Tab_competition.getMatchFIN()->getWinnerMatch();
 		std::cout<<std::endl;
@@ -436,9 +444,11 @@ int main(){
 			score_j2 ++;
 		}
 
+		//On annonce la gagnant à partir des points comptabilisés
 		if (score_j1 < score_j2) std::cout << "\nAvec un score de " << std::to_string(score_j2) << " contre "<< std::to_string(score_j1) <<", le joueur 2 remporte la partie" << std::endl;
 		else std::cout << "Avec un score de " << std::to_string(score_j1) << " contre "<< std::to_string(score_j2) << ", le joueur 1 remporte la partie" << std::endl;
 
+		//On affiche les cartes gagnés par chaque joueur, qui seront également rajoutés au vecteur de carte utilisé pour faire lmes decks
 		std::cout<<"\nLe jeu est terminé, êtes-vous prêt a voir les cartes que vous avez gagner ?\nappuyez sur 0 puis ENTRER"<<std::endl;
 		while(entrer)std::cin>>entrer;
 		entrer=1;
@@ -447,15 +457,15 @@ int main(){
 		if(score_j1) std::cout<<"------------------- Voici les gains de "<<nom1<<" -------------------\n"<<std::endl;
 		for(int i=0; i<score_j1; i++){
 			auto iter = std::begin(liCollection);
-			choice1 = rand()%liCollection.size();
-			std::advance(iter,choice1);
+			choice = rand()%liCollection.size();
+			std::advance(iter,choice);
 			J1.newCarte(*iter);
 		}
 		if(score_j2) std::cout<<"\n------------------- Voici les gains de Gontrand -------------------\n"<<std::endl;
 		for(int i=0; i<score_j2; i++){
 			auto iter = std::begin(liCollection);
-			choice2 = rand()%liCollection.size();
-			std::advance(iter,choice2);
+			choice = rand()%liCollection.size();
+			std::advance(iter,choice);
 			J2.newCarte(*iter);
 		}
 		std::cout<<"Voulez vous faire une nouvelle partie ? O/N"<<std::endl;

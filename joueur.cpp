@@ -32,6 +32,7 @@ Deck* Joueur::getDeck(const int indice){
     return temp;
 }
 
+//fonction pour ajouter une Carte au vecteur de Carte qui permet de faire ses decks. Si la carte n'est pas déjà présente dans _lCartes, alors elle est rajoutée
 void Joueur::newCarte(Carte* carte){
     if(std::find(std::begin(this->_lCartes), std::end(this->_lCartes), carte)!=std::end(this->_lCartes)){
         std::cout<<"Vous possédez déjà la carte '"<<carte->getNom()<<"', DOMMAGE !\n"<<std::endl;
@@ -48,6 +49,7 @@ void Joueur::newCarte(Carte* carte){
     }
 }
 
+//Le vecteur de carte contient les cartes triées dans l'ordre, ce qui permet de faire plus facilement le choix des Cartes que l'on veut dans son deck
 Deck Joueur::newDeck(){
     long unsigned int choice;
     bool ok = true;
@@ -79,6 +81,7 @@ Deck Joueur::newDeck(){
     return newDeck;
 }
 
+//surcharge d'opérateur qui va permettre de vérifier, lors de la création du deuxième deck, que les cartes séléctionnées ne spnt pas les mêmes que pour le premier deck
 Deck Joueur::newDeck(Deck* other){
     std::list<Carte*> compar = other->getMain();
     long unsigned int choice;

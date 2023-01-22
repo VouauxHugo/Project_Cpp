@@ -7,7 +7,7 @@
 #include <list>
 #include <vector>
 #include "deck.hpp"
-
+//la classe est crée avec pour attribut un vecteur de Carte _lCartes constituant la base pour constituer les 2 decks du joueur qui seront stockés dans la liste de deck _lDecks 
 class Joueur{
 	public:
 		Joueur(const std::string& nom, std::vector<Carte*> cartes);
