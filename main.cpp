@@ -1,6 +1,121 @@
+//#define CATCH_CONFIG_MAIN
+
+#include "catch.hpp"
 #include "tableau.hpp"
 #include <charconv>
 #include <bits/stdc++.h>
+
+/*TEST_CASE("Test des Cartes"){
+	printf("============Test des Cartes============\n");
+	Attaquant att("Nom", "FRA", 2);
+	Defenseur def("Nom", "FRA", 2);
+	Gardien gar("Nom", "FRA", 2);
+	Sponsors spo("Nom", 1, 2);
+	Coach coa("Nom", 1, 2);
+	Supporters sup("Nom", 1, 2);
+	Pays pay("France", 1, 2, 3, 4);
+	CHECK(att ==att);
+	CHECK(att.getNom() == "Nom");
+	CHECK(att.getAttaque() == 2);
+	CHECK(def.getNom() == "Nom");
+	CHECK(def.getDefense() == 2);
+	CHECK(gar.getNom() == "Nom");
+	CHECK(gar.getGoal() == 2);
+	CHECK(sup.getNom() == "Nom");
+	CHECK(sup.getAttaque() == 2);
+	CHECK(sup.getRarete() == 1);
+	CHECK(coa.getNom() == "Nom");
+	CHECK(coa.getDefense() == 2);
+	CHECK(coa.getRarete() == 1);
+	CHECK(spo.getNom() == "Nom");
+	CHECK(spo.getGoal() == 2);
+	CHECK(spo.getRarete() == 1);
+	CHECK(pay.getNom() == "France");
+	CHECK(pay.getAttaque() == 1);
+	CHECK(pay.getDefense() == 2);
+	CHECK(pay.getGoal() == 3);
+	CHECK(pay.getCharisme() == 4);
+}
+
+TEST_CASE("Test des Deck et Joueur"){
+	printf("============Test des Deck et Joueur============\n");
+	Attaquant att("Nom1", "FRA", 2);
+	Defenseur def("Nom2", "FRA", 2);
+	Gardien gar("Nom3", "FRA", 2);
+	Sponsors spo("Nom4", 1, 2);
+	Coach coa("Nom5", 1, 2);
+	Supporters sup("Nom6", 1, 2);
+	Pays pay("France", 1, 2, 3, 4);
+	Attaquant att2("Nom7", "FRA", 2);
+	Defenseur def2("Nom8", "FRA", 2);
+	Gardien gar2("Nom9", "FRA", 2);
+	Sponsors spo2("Nom10", 1, 2);
+	Coach coa2("Nom11", 1, 2);
+	Supporters sup2("Nom12", 1, 2);
+	Pays pay2("FranceBIS", 1, 2, 3, 4);
+	std::list<Carte*> liste;
+	liste.push_back(&att);
+	liste.push_back(&def);
+	liste.push_back(&gar);
+	liste.push_back(&spo);
+	liste.push_back(&coa);
+	liste.push_back(&sup);
+	liste.push_back(&pay);
+	Deck deck1("Nom1", liste);
+	Deck deck2("Nom2", liste);
+	std::vector<Carte*> vector;
+	vector.push_back(&att);
+	vector.push_back(&def);
+	vector.push_back(&gar);
+	vector.push_back(&spo);
+	vector.push_back(&coa);
+	vector.push_back(&sup);
+	vector.push_back(&pay);
+	vector.push_back(&att2);
+	vector.push_back(&def2);
+	vector.push_back(&gar2);
+	vector.push_back(&spo2);
+	vector.push_back(&coa2);
+	vector.push_back(&sup2);
+	vector.push_back(&pay2);
+	Joueur jou("Nom3", vector);
+	CHECK(deck1.getNom() == "Nom1");
+	CHECK(deck1.getAttaque() == 5);
+	CHECK(deck1.getDefense() == 6);
+	CHECK(deck1.getGoal() == 7);
+	CHECK(deck1.getCharisme() == 4.0f);
+}
+
+TEST_CASE("Test des Match"){
+	printf("============Test des Match============\n");
+	Attaquant att("Nom1", "FRA", 2);
+	Defenseur def("Nom2", "FRA", 2);
+	Gardien gar("Nom3", "FRA", 2);
+	Sponsors spo("Nom4", 1, 2);
+	Coach coa("Nom5", 1, 2);
+	Supporters sup("Nom6", 1, 2);
+	Pays pay("France", 1, 2, 3, 4);
+	Attaquant att2("Nom7", "FRA", 2);
+	Defenseur def2("Nom8", "FRA", 2);
+	Gardien gar2("Nom9", "FRA", 2);
+	Sponsors spo2("Nom10", 1, 2);
+	Coach coa2("Nom11", 1, 2);
+	Supporters sup2("Nom12", 1, 2);
+	Pays pay2("FranceBIS", 1, 2, 3, 4);
+	std::list<Carte*> liste;
+	liste.push_back(&att);
+	liste.push_back(&def);
+	liste.push_back(&gar);
+	liste.push_back(&spo);
+	liste.push_back(&coa);
+	liste.push_back(&sup);
+	liste.push_back(&pay);
+	Deck deck1("Nom1", liste);
+	Deck deck2("Nom2", liste);
+	Match ma(&deck1, &deck2);
+	CHECK(ma.getDeck(0) == &deck1);
+	CHECK(ma.getDeck(1) == &deck2);
+}*/
 
 int main(){
 	std::string nom, attaque, defense, goal, charisme, nationalite, rarete;
